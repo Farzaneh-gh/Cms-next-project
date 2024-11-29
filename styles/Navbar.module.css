@@ -1,0 +1,39 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user_avatar {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.navbar_search {
+  position: relative;
+
+  width: 40%;
+}
+
+.navbar_search input {
+  width: 100%;
+  outline: none;
+  border: 2px solid #eee;
+  outline: none;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1.3rem;
+  border-radius: 5px;
+}
+
+.navbar_search_icon {
+  position: absolute;
+  top: 30%;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: #636e72;
+  cursor: pointer;
+}

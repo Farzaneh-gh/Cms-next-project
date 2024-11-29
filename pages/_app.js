@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
 
   
   return (
-  <div>
+  <div className="container">
     <Sidebar />
     <main className="main">
       <Navbar />
