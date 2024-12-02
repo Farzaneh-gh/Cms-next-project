@@ -1,0 +1,31 @@
+.courses {
+  width: 85%;
+  padding: 4rem 0;
+}
+
+.courses_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.courses_title {
+  font-size: 3rem;
+}
+
+.courses_btn {
+  background-color: #41b300;
+  color: #fff;
+  box-shadow: #42b3009a 0px 8px 24px;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+}
+
+.courses_list{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    padding: 4rem;
+}

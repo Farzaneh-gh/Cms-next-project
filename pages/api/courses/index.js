@@ -3,15 +3,17 @@ import courseModel from "@/models/course";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const { title } = req.body;
+    const { title, price, teacher, image } = req.body;
 
-    if (!title.trim() || title.length < 5) {
-      return res.status(422).json({ message: "title is not valid" });
+    if (!title.trim() || !price < 0 || !teacher.trim()) {
+      return res.status(422).json({ message: "inputs are not valid" });
     }
-
+    if (!image || !image.name || !image.data || !image.contentType) {
+      return res.status(422).json({ message: "Image data is invalid" });
+    }
     try {
       connectToDB();
-      await courseModel.create({ title });
+      await courseModel.create({ title, price, teacher, image });
       return res.status(201).json({ message: "course created successfully" });
     } catch (error) {
       console.log("error creating course =>", error.message);

@@ -10,7 +10,7 @@ function index() {
 export default index;
 
 export async function getStaticProps(){
- connectToDB();
+    connectToDB();
   const courses=await courseModel.find({});
   console.log(courses);
 return {

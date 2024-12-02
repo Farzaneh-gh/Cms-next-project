@@ -4,13 +4,26 @@ const schema = mongoose.Schema({
   title: {
     type: String,
     required: true,
+    trim: true, // Removes extra spaces
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0, // Ensures price is non-negative
+  },
+  teacher: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  image: {
+    name: { type: String },
+    data: { type: Buffer },
+    contentType: { type: String },
   },
 });
 
-/* ongoose.models: This is a cache of all models that Mongoose has already defined.
-||: If the model already exists in mongoose.models, it reuses the existing model instead of redefining it. */
-
+// Use existing model if already defined
 const model = mongoose.models.Course || mongoose.model("Course", schema);
 
 export default model;
-
