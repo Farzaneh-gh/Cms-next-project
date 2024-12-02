@@ -1,6 +1,6 @@
 import React from 'react'
 import Styles from '@/styles/Courses.module.css'
-import AddModal from './AddModal';
+import AddCourseModal from './AddModal';
 import { useState } from 'react';
 
 function Courses() {
@@ -21,7 +21,7 @@ function Courses() {
         <ul className={Styles.courses_list}></ul>
       </section>
       {
-        showAddCourseModal && <AddModal hideAddCourseModal={handelHideModal}/>
+        showAddCourseModal && <AddCourseModal hideAddCourseModal={handelHideModal}/>
       }
     </>
   );

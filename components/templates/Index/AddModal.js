@@ -12,8 +12,9 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+import swal from "sweetalert";
 
-function AddModal({ hideAddCourseModal }) {
+function AddCourseModal({ hideAddCourseModal }) {
   const [couseInformation, setCourseInformation] = useState({
     title: "",
     price: "",
@@ -75,7 +76,16 @@ function AddModal({ hideAddCourseModal }) {
           contentType: "",
         },
       });
+      hideAddCourseModal();
 
+      swal({
+        title: "Add Course",
+        icon: "success",
+        text: "Course Added Successfully",
+        customClass: {
+          confirmButton: 'swal2-confirm-custom-class',
+        }
+      });
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -137,4 +147,4 @@ function AddModal({ hideAddCourseModal }) {
   );
 }
 
-export default AddModal;
+export default AddCourseModal;
