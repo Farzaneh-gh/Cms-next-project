@@ -1,0 +1,58 @@
+.course_item_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+  height: 75px;
+  box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+  border-radius: 5px;
+}
+
+.course_img_title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+}
+
+.course_img {
+  width: 120px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course_btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.edit_btn {
+  background-color: #009cf0;
+  color: #fff;
+  box-shadow: #009cf05d 0px 8px 24px;
+}
+
+.delete_btn {
+  background-color: #ce0000;
+  color: #fff;
+  box-shadow: #ce000077 0px 8px 24px;
+}
+
+.delete_btn,.edit_btn{
+    text-decoration: none;
+    padding: 1rem 2rem;
+    outline: none;
+    border: none;
+    transition: all 0.4s;
+    position: relative;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.delete_btn:hover{
+    background-color: #ce0000;
+}

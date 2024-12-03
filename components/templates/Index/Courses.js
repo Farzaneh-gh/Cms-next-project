@@ -1,11 +1,12 @@
-import React from 'react'
-import Styles from '@/styles/Courses.module.css'
-import AddCourseModal from './AddModal';
-import { useState } from 'react';
+import React from "react";
+import Styles from "@/styles/Courses.module.css";
+import AddCourseModal from "./AddModal";
+import { useState } from "react";
+import CourseItem from "@/components/modules/CourseItem/CourseItem";
 
-function Courses() {
- const [showAddCourseModal, setShowAddCourseModal] = useState(false);
- const handelHideModal = () => setShowAddCourseModal(false);
+function Courses({ data }) {
+  const [showAddCourseModal, setShowAddCourseModal] = useState(false);
+  const handelHideModal = () => setShowAddCourseModal(false);
   return (
     <>
       <section className={Styles.courses}>
@@ -13,18 +14,24 @@ function Courses() {
           <h2 className={Styles.courses_title}>Courses</h2>
           <button
             className={Styles.courses_btn}
-            onClick={() =>setShowAddCourseModal(true)}
+            onClick={() => setShowAddCourseModal(true)}
           >
             Add Course
           </button>
         </div>
-        <ul className={Styles.courses_list}></ul>
+        <ul className={Styles.courses_list}>
+          {data.map((course) => (
+            <li key={course._id}>
+              <CourseItem course={course} />
+            </li>
+          ))}
+        </ul>
       </section>
-      {
-        showAddCourseModal && <AddCourseModal hideAddCourseModal={handelHideModal}/>
-      }
+      {showAddCourseModal && (
+        <AddCourseModal hideAddCourseModal={handelHideModal} />
+      )}
     </>
   );
 }
 
-export default Courses
+export default Courses;
