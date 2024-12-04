@@ -5,8 +5,20 @@ import { useState } from "react";
 import CourseItem from "@/components/modules/CourseItem/CourseItem";
 
 function Courses({ data }) {
+  const [courses,setCourses]=useState(data);
   const [showAddCourseModal, setShowAddCourseModal] = useState(false);
   const handelHideModal = () => setShowAddCourseModal(false);
+
+const getAllCourses=async()=>{
+  try{
+    const response=await fetch("/api/courses");
+    const data=await response.json();
+    setCourses(data);
+  }catch(error){
+    console.log("error getting courses =>",error.message);
+  }
+}
+
   return (
     <>
       <section className={Styles.courses}>
@@ -20,15 +32,15 @@ function Courses({ data }) {
           </button>
         </div>
         <ul className={Styles.courses_list}>
-          {data.map((course) => (
+          {courses.map((course) => (
             <li key={course._id}>
-              <CourseItem course={course} />
+              <CourseItem course={course} getAllCourses={getAllCourses}/>
             </li>
           ))}
         </ul>
       </section>
       {showAddCourseModal && (
-        <AddCourseModal hideAddCourseModal={handelHideModal} />
+        <AddCourseModal hideAddCourseModal={handelHideModal} getAllCourses={getAllCourses} />
       )}
     </>
   );

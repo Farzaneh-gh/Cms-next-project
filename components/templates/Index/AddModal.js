@@ -14,7 +14,7 @@ import {
 
 import swal from "sweetalert";
 
-function AddCourseModal({ hideAddCourseModal }) {
+function AddCourseModal({ hideAddCourseModal, getAllCourses }) {
   const [couseInformation, setCourseInformation] = useState({
     title: "",
     price: "",
@@ -77,14 +77,15 @@ function AddCourseModal({ hideAddCourseModal }) {
         },
       });
       hideAddCourseModal();
+      getAllCourses();
 
       swal({
         title: "Add Course",
         icon: "success",
         text: "Course Added Successfully",
         customClass: {
-          confirmButton: 'swal2-confirm-custom-class',
-        }
+          confirmButton: "swal2-confirm-custom-class",
+        },
       });
       console.log(data);
     } catch (error) {
